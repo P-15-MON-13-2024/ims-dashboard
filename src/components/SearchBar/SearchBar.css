@@ -1,0 +1,26 @@
+.SearchBar {
+    background-color:#777777 ;
+    min-width: 200px;
+    width: 40%;
+    height: 43px;
+    border-radius:40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    margin-left: 20px;
+
+} 
+.SearchField {
+    color: #eee;
+    background-color: #777777;
+    box-shadow: none;
+    border: none;
+}
+.SearchInput:focus{
+    outline: none;
+    
+}
+.SearchIcon {
+    color:#000 ;
+} 

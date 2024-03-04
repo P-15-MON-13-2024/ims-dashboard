@@ -1,0 +1,39 @@
+.menu{
+    z-index: 40;
+    position: fixed;
+    width: 40px;
+    left: 3px;
+    top: 27px;
+    
+}
+.menu:hover{
+    cursor: pointer;
+}
+.SideBar {
+    z-index: 2;
+    
+    height: 100%;
+    width: 230px;
+    background-color: #d9d9d9;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-off{
+    display: none;
+}
+.sidebar-on{
+    display: flex;
+    animation: sideBarSlide 0.6s ease-in-out;
+}
+
+@keyframes sideBarSlide{
+    0%{
+        left:-350px;
+    }
+    100%{
+        left: 0px;
+    }
+}

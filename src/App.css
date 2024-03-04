@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+.App .workArea{
+  padding-top: 80px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
