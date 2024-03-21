@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './SmallBlock.css';
 
-function SmallBlock () {
+function SmallBlock ({itemName="Item Name"}) {
 
   return(
   <div className="SmallBlock">
     <div className='cover'></div>
-    <div className='body'>Item Name</div>
+    <div className='body'>{itemName}</div>
   </div>
   )
 };

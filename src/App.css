@@ -38,3 +38,7 @@
     transform: rotate(360deg);
   }
 }
+
+.workArea{
+  padding: 150px;
+}

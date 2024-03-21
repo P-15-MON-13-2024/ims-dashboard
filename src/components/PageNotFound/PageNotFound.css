@@ -1,0 +1,10 @@
+.PageNotFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px;
+}
+.PageNotFound > .big{
+    font-size: 100px;
+}
