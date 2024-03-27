@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './PopUpBlock.css'
-const PopUpBlock = ({visibility=false, children}) => {
+const PopUpBlock = ({visibility=false, onClose, children}) => {
   const [isVisible, setIsVisible] = useState(visibility);
 
-  const togglePopup = () => {
-    setIsVisible(!isVisible);
+  const handleClosePopup = () => {
+    onClose();
+    setIsVisible(false);
   };
 
 
@@ -12,12 +13,12 @@ const PopUpBlock = ({visibility=false, children}) => {
     <>
     <div className='pop-up-bg' style={isVisible?{display:'block'}:{display:'none'}}> </div>
       <div className='PopUpBlock' style={isVisible?{display:'block'}:{display:'none'}}>
-        <div className='close-button-box' onClick={togglePopup}><button className='close-button'>X</button></div>
+        <div className='close-button-box' onClick={handleClosePopup}><button className='close-button'>X</button></div>
         {isVisible && (
           <div className="popup-overlay">
             <div className="popup-dialog">
               <div className="popup-content">
-                <p>{children}</p>
+                {children}
               </div>
               <div className="popup-footer">
               </div>
