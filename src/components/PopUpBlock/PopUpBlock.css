@@ -1,0 +1,10 @@
+.PopUpBlock {
+    background-color: bisque;
+    padding: 10px;
+    border-radius: 20px;
+    position: fixed;
+    height: 500px;
+    width: 500px;
+    top:calc(50% - 250px);
+    left:calc(50% - 250px);
+}

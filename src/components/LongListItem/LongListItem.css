@@ -32,3 +32,20 @@
     flex-direction: column;
     justify-content: center;
 }
+.Flag{
+    background-color: #939393;
+    min-width: 100px;
+    width: 25%;
+    max-width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-right: 0;
+    position:relative;
+    top:calc(45px);
+    left:calc(-20px);
+    
+}

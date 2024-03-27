@@ -51,9 +51,9 @@ const HomePage = () => (
         </LongListItem>
       </div>
     </div>
-    <div className='RightPage'>
+    {/* <div className='RightPage'>
       <RecentActivityBlock/>
-    </div>
+    </div> */}
   </div>
 );
 

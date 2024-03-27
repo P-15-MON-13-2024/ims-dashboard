@@ -41,4 +41,6 @@
 
 .workArea{
   padding: 150px;
+  height: 100vh;
+  overflow: scroll;
 }
