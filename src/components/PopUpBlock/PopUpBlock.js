@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './PopUpBlock.css'
-const PopUpBlock = ({ content, visibility=false }) => {
+const PopUpBlock = ({visibility=false, children}) => {
   const [isVisible, setIsVisible] = useState(visibility);
 
   const togglePopup = () => {
@@ -17,7 +17,7 @@ const PopUpBlock = ({ content, visibility=false }) => {
           <div className="popup-overlay">
             <div className="popup-dialog">
               <div className="popup-content">
-                <p>{content}</p>
+                <p>{children}</p>
               </div>
               <div className="popup-footer">
               </div>
