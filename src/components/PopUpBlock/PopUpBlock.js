@@ -1,43 +1,32 @@
 import React, { useState } from 'react';
 import './PopUpBlock.css'
-const PopUpBlock = ({ title, content, onConfirm, onCancel }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const PopUpBlock = ({ content, visibility=false }) => {
+  const [isVisible, setIsVisible] = useState(visibility);
 
   const togglePopup = () => {
-    setIsOpen(!isOpen);
+    setIsVisible(!isVisible);
   };
 
-  const handleConfirm = () => {
-    onConfirm();
-    setIsOpen(false);
-  };
-
-  const handleCancel = () => {
-    onCancel();
-    setIsOpen(false);
-  };
 
   return (
-    <div className='PopUpBlock'>
-      <button onClick={togglePopup}>Open Dialog</button>
-      {isOpen && (
-        <div className="popup-overlay">
-          <div className="popup-dialog">
-            <div className="popup-header">
-              <h2>{title}</h2>
-              <button onClick={handleCancel}>X</button>
-            </div>
-            <div className="popup-content">
-              <p>{content}</p>
-            </div>
-            <div className="popup-footer">
-              <button onClick={handleConfirm}>Confirm</button>
-              <button onClick={handleCancel}>Cancel</button>
+    <>
+    <div className='pop-up-bg' style={isVisible?{display:'block'}:{display:'none'}}> </div>
+      <div className='PopUpBlock' style={isVisible?{display:'block'}:{display:'none'}}>
+        <div className='close-button-box' onClick={togglePopup}><button className='close-button'>X</button></div>
+        {isVisible && (
+          <div className="popup-overlay">
+            <div className="popup-dialog">
+              <div className="popup-content">
+                <p>{content}</p>
+              </div>
+              <div className="popup-footer">
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
+
   );
 };
 
