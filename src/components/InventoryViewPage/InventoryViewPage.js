@@ -3,6 +3,8 @@ import './InventoryViewPage.css';
 import LongListItem from '../LongListItem/LongListItem';
 import PopUpBlock from '../PopUpBlock/PopUpBlock';
 
+const inventoryFlagColor = "#CFB34F"
+
 function InventoryViewPage() {
   const [inventoryItems, setInventoryItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -43,7 +45,7 @@ function InventoryViewPage() {
     <div className="InventoryViewPage">
       {inventoryItems.map((item, index) => (
         <div key={index} onClick={() => handleItemClick(item)}>
-          <LongListItem imageUrl={''} flag={`Available: ${item['total_count'] - item['issued_count']}`}>
+          <LongListItem imageUrl={''} flag={`Available: ${item['total_count'] - item['issued_count']}`} flagColor={(item['total_count'] - item['issued_count'])?inventoryFlagColor:"#ff5555"} flagTextColor="#fff">
             <h4 align="left">{item['bucket_name']}</h4>
             <p align="left">
               Total Count: {item['total_count']}<br />

@@ -4,9 +4,10 @@
     border-radius: 20px;
     position: fixed;
     height: 500px;
-    width: 500px;
+    min-width: 500px;
+    width: 70%;
     top:calc(50% - 250px);
-    left:calc(50% - 250px);
+    left:calc(50% - max(35%,250px));
     z-index: 1000;
 }
 .pop-up-bg{
@@ -29,5 +30,15 @@
 .close-button{
     margin-right: 50px;
     margin-top: 10px;
-
+    background-color: #ff5959;
+    /* color: #fff; */
+    font-size: large;
+    height: 35px;
+    width: 35px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px
 }
