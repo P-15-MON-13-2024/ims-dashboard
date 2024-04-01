@@ -42,7 +42,7 @@ function UserListPage () {
   <div className="UserListPage">
     {userList.map((sapien, index)=>(
         <div key={index} onClick={() => handleItemClick(sapien)}>
-          <LongListItem imageUrl={''} flag={sapien['allowed']?'Allowed':'Not Allowed'}>
+          <LongListItem imageUrl={''} flag={sapien['allowed']?'Allowed':'Not Allowed'} flagColor={sapien['allowed']?"#83ce75":"#ff5555"} flagTextColor="#fff">
             <h4 align='left'>{sapien['name'].trim()}</h4>
             <p align='left'>
             Institute ID: {sapien['insti_id']}<br/>

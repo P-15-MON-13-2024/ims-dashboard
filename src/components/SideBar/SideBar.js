@@ -13,10 +13,10 @@ function SideBar(){
   return (
     <div>
     <FontAwesomeIcon className='menu' icon={sideBarStatus?faX:faBars} onClick={()=>{setSideBarStatus(!sideBarStatus)}}/>
-    <div className={`SideBar sidebar-${sideBarStatus?"on":"off"}`}>
-      <SideBarItem isPage={location.pathname == '/'} href='/' >Home</SideBarItem>
-      <SideBarItem isPage={location.pathname == '/inventory'} href='/inventory'>Inventory</SideBarItem>
-      <SideBarItem isPage={location.pathname == '/user-list'} href='/user-list'>User List</SideBarItem>
+    <div className={`SideBar sidebar-${sideBarStatus?"on":"off"}`} >
+      <SideBarItem isPage={location.pathname == '/'} href='/' onClick={()=>{setSideBarStatus(!sideBarStatus)}}>Home</SideBarItem>
+      <SideBarItem isPage={location.pathname == '/inventory'} href='/inventory' onClick={()=>{setSideBarStatus(!sideBarStatus)}}>Inventory</SideBarItem>
+      <SideBarItem isPage={location.pathname == '/user-list'} href='/user-list' onClick={()=>{setSideBarStatus(!sideBarStatus)}}>User List</SideBarItem>
       <SideBarItem >Recent Activity</SideBarItem>
 
     </div>
