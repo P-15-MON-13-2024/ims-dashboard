@@ -25,18 +25,18 @@ function HomePage(){
 
   return(
   <div className="HomePage">
-    <div className='LeftPage'>
-      <div className='recentSearchArea'>
+    {/* <div className='LeftPage'> */}
+      {/* <div className='recentSearchArea'>
         <h2>Recent Searches</h2>
         <div className='recentSearches'>
         <SmallBlock/><SmallBlock/><SmallBlock/><SmallBlock/><SmallBlock/>
         </div>
-      </div>
+      </div> */}
       <div className='IssuedItemsArea'>
         <h2>Issued Items</h2>
         {
           issuedData.map((item, index)=>(
-            <LongListItem imageUrl={""}>
+            <LongListItem imageUrl={""} flag={'Hi'}>
               <h3 style={{'marginTop':'0', 'marginBottom':'0'}}>{item['item_name']}</h3>
               {item['item_serial_id']}<br/>
               <p>
@@ -47,7 +47,7 @@ function HomePage(){
           ))
         }
       </div>
-    </div>
+    {/* </div> */}
     {/* <div className='RightPage'>
       <RecentActivityBlock/>
     </div> */}

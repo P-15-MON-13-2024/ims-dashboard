@@ -1,6 +1,6 @@
 .PopUpBlock {
     background-color: #d8d8d8;
-    padding: 10px;
+    margin: 10px;
     border-radius: 20px;
     position: fixed;
     height: 500px;
@@ -9,6 +9,12 @@
     top:calc(50% - 250px);
     left:calc(50% - max(35%,250px));
     z-index: 1000;
+    overflow-y: scroll;
+    overflow-x: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
 }
 .pop-up-bg{
     height: 100vh;
@@ -25,6 +31,8 @@
     justify-content: end;
     align-items: end;
     position: absolute;
+    right: -40px;
+    z-index: 100;
     width: 100%;
 }
 .close-button{

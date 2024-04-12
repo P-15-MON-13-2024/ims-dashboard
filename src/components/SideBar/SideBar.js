@@ -17,7 +17,7 @@ function SideBar(){
       <SideBarItem isPage={location.pathname == '/'} href='/' onClick={()=>{setSideBarStatus(!sideBarStatus)}}>Home</SideBarItem>
       <SideBarItem isPage={location.pathname == '/inventory'} href='/inventory' onClick={()=>{setSideBarStatus(!sideBarStatus)}}>Inventory</SideBarItem>
       <SideBarItem isPage={location.pathname == '/user-list'} href='/user-list' onClick={()=>{setSideBarStatus(!sideBarStatus)}}>User List</SideBarItem>
-      <SideBarItem >Recent Activity</SideBarItem>
+      {/* <SideBarItem >Recent Activity</SideBarItem> */}
 
     </div>
     </div>

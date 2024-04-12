@@ -43,10 +43,11 @@ function InventoryViewPage() {
 
   return (
     <div className="InventoryViewPage">
+      <h2 align='left'>Inventory</h2>
       {inventoryItems.map((item, index) => (
         <div key={index} onClick={() => handleItemClick(item)}>
           <LongListItem imageUrl={''} flag={`Available: ${item['total_count'] - item['issued_count']}`} flagColor={(item['total_count'] - item['issued_count'])?inventoryFlagColor:"#ff5555"} flagTextColor="#fff">
-            <h4 align="left">{item['bucket_name']}</h4>
+            <h4 align="left" style={{'marginTop':'0', 'marginBottom':'0'}}>{item['bucket_name']}</h4>
             <p align="left">
               Total Count: {item['total_count']}<br />
               Issued: {item['issued_count']}
@@ -56,15 +57,33 @@ function InventoryViewPage() {
       ))}
       {selectedItem && (
         <PopUpBlock visibility={true} onClose={handleClosePopup}>
-          <h2>{selectedItem['bucket_name']}</h2>
-          <p>Total Count: {selectedItem['total_count']}</p>
-          <p>Issued: {selectedItem['issued_count']}</p>
-          <h3>Items:</h3>
-          <ul>
+          <div className='Headings'>
+            <div className='flex-box'>
+            <div className='ItemImage'>
+            <img src={''} alt="" height="110px" width="110px"/>
+          </div>
+            <div>
+              <h2 style={{'marginTop':'0', 'marginBottom':'0'}}>{selectedItem['bucket_name']}</h2>
+              Total Count: {selectedItem['total_count']}
+              <br/>Issued: {selectedItem['issued_count']}
+            </div>
+            </div>
+
+            <h3>Items:</h3>
+          
+
+          </div>
+          <div className='scrolling-items'>
             {bucketItems.map((item) => (
-              <li key={item.id}>{item.name}</li>
-            ))}
-          </ul>
+                        <LongListItem imageUrl={''} flagColor={(item['total_count'] - item['issued_count'])?inventoryFlagColor:"#ff5555"} flagTextColor="#fff">
+                        <div align='left'>
+                        <h3 style={{'marginTop':'0', 'marginBottom':'0'}}>{item.name}</h3>
+                          {item.serial_id}<br/>
+                          Issued: {item['issued_count']}
+                        </div>
+                        
+                      </LongListItem>
+            ))}</div>
         </PopUpBlock>
       )}
     </div>
