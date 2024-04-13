@@ -74,14 +74,6 @@ function UserListPage () {
         <div className='HistoryItems'>
           <h3 style={{'marginTop':'0', 'marginBottom':'0'}}>History:</h3>
             {activityItems.length?activityItems.map((item) => (
-                      //   <LongListItem imageUrl={''} flagColor={(item['total_count'] - item['issued_count'])?inventoryFlagColor:"#ff5555"} flagTextColor="#fff">
-                      //   <div align='left'>
-                      //   <h3 style={{'marginTop':'0', 'marginBottom':'0'}}>{item.name}</h3>
-                      //     {item.serial_id}<br/>
-                      //     Issued: {item['issued_count']}
-                      //   </div>
-                        
-                      // </LongListItem>
                       <>
                       <div className='HistoryItem'>
                         <div style={{flex:1}}>
@@ -93,7 +85,8 @@ function UserListPage () {
 
                         </div>
 
-                      </div>                        <hr/>
+                      </div>                        
+                      <hr/>
 
                       </>
 

@@ -1,7 +1,7 @@
 .PopUpBlock {
     background-color: #d8d8d8;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 15px;
     position: fixed;
     height: 500px;
     min-width: 500px;
@@ -10,11 +10,12 @@
     left:calc(50% - max(35%,250px));
     z-index: 1000;
     overflow-y: scroll;
-    overflow-x: visible;
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: auto;
+    border: solid #8e8e8e 7px;
 }
 .pop-up-bg{
     height: 100vh;

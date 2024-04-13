@@ -9,7 +9,8 @@ function HeaderBar(){
   <div className="HeaderBar">
     <SideBar/>
     <div className='Content'>
-      <SearchBar/>
+      {/* <SearchBar/> */}
+      <h2>Inventory Management System</h2>
       <div className = "profile">
         <div className='ProfileAvatar'></div>
       </div>
