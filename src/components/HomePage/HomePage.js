@@ -36,7 +36,7 @@ function HomePage(){
         <h2>Issued Items</h2>
         {
           issuedData.map((item, index)=>(
-            <LongListItem imageUrl={""} flag={'Hi'}>
+            <LongListItem imageUrl={""} flag={new Date(item['expected_return'])> new Date(item['issue_time'])?`${Math.round((new Date(item['expected_return']) - new Date())/(1000 * 60 * 60 * 24))} days left`:'Overdue'} flagColor={new Date(item['expected_return'])> new Date()?"#83ce75":"#ff5555"} flagTextColor="#fff">
               <h3 style={{'marginTop':'0', 'marginBottom':'0'}}>{item['item_name']}</h3>
               {item['item_serial_id']}<br/>
               <p>

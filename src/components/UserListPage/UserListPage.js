@@ -4,9 +4,12 @@ import './UserListPage.css';
 import LongListItem from '../LongListItem/LongListItem';
 import { useState, useEffect } from 'react';
 import PopUpBlock from '../PopUpBlock/PopUpBlock';
+import { format } from 'date-fns';
+
 function UserListPage () { 
   const [userList, setUserList] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [activityItems, setActivityItems] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -22,15 +25,15 @@ function UserListPage () {
     }
   };
 
-  const handleItemClick = (sapien) => {
-    setSelectedItem((prevSelectedItem) => {
-      // If the clicked item is already selected, deselect it
-      if (prevSelectedItem && prevSelectedItem['insti_id'] === sapien['insti_id']) {
-        return null;
-      }
-      // Otherwise, select the clicked item
-      return sapien;
-    });
+  const handleItemClick = async (sapien) => {
+    setSelectedItem( sapien);
+    try {
+      const response = await fetch(`http://localhost:8000/api/dashboard/sapien-activities/${sapien.serial_id}/`);
+      const result = await response.json();
+      setActivityItems(result); // Set bucketItems directly to the fetched result
+    } catch (error) {
+      console.error('Error fetching bucket items:', error);
+    }
   };
   
   
@@ -55,11 +58,49 @@ function UserListPage () {
       ))}
           {selectedItem && (
         <PopUpBlock visibility={true} onClose={handleClosePopup}>
-          {/* Content to show in the popup */}
-          <h2>{selectedItem['name']}</h2>
-          <p>Insti ID: {selectedItem['insti_id']}</p>
-          <p>Serial ID: {selectedItem['serial_id']}</p>
-          <p>{selectedItem['allowed']?'Allowed':'Not Allowed'}</p>
+        <div className='Headings'>
+          <div className='flex-box'>
+            <div className='ItemImage'>
+              <img src={''} alt="" height="110px" width="110px"/>
+            </div>
+            <div className='text'>
+                <h2 style={{'marginTop':'0', 'marginBottom':'0'}}>{selectedItem['name']}</h2>
+                Insti ID: {selectedItem['insti_id']}<br/>
+                Serial ID: {selectedItem['serial_id']}
+            </div>
+          </div>
+        </div>
+          
+        <div className='HistoryItems'>
+          <h3 style={{'marginTop':'0', 'marginBottom':'0'}}>History:</h3>
+            {activityItems.length?activityItems.map((item) => (
+                      //   <LongListItem imageUrl={''} flagColor={(item['total_count'] - item['issued_count'])?inventoryFlagColor:"#ff5555"} flagTextColor="#fff">
+                      //   <div align='left'>
+                      //   <h3 style={{'marginTop':'0', 'marginBottom':'0'}}>{item.name}</h3>
+                      //     {item.serial_id}<br/>
+                      //     Issued: {item['issued_count']}
+                      //   </div>
+                        
+                      // </LongListItem>
+                      <>
+                      <div className='HistoryItem'>
+                        <div style={{flex:1}}>
+                          {item.item_name}<br/> ({item.item_serial_id})<br/>
+                        </div>
+                        <div style={{flex:2}}>
+                        Issued On: {format(new Date(item.issue_time),'MMMM dd, yyyy hh:mm a')}<br/>
+                        {item.is_returned?'':'Not'} Returned {item.is_returned?`on: ${format(new Date(item.return_time),'MMMM dd, yyyy hh:mm a')}`:'yet'} 
+
+                        </div>
+
+                      </div>                        <hr/>
+
+                      </>
+
+            )):'No Activity Found'}                      
+        </div>
+        
+
         </PopUpBlock>
       )}
 

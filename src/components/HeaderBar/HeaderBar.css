@@ -1,3 +1,4 @@
+
 .HeaderBar > .Content{
     background-color:#D9D9D9 ;
     position: fixed;
@@ -7,6 +8,7 @@
     align-items: center;
     justify-content: space-around;
     padding-left: 20px;
+    z-index: 100;
 }
 .profile{
     display: flex;
