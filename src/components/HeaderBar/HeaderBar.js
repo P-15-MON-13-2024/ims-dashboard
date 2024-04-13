@@ -11,7 +11,7 @@ function HeaderBar(){
     <div className='Content'>
       <SearchBar/>
       <div className = "profile">
-        <div className='ProfileAvatar'></div>Admin
+        <div className='ProfileAvatar'></div>
       </div>
     </div>
   </div>
